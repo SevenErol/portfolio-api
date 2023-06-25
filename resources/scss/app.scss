@@ -1,1 +1,15 @@
-@import '~bootstrap/scss/bootstrap'
+@import '~bootstrap/scss/bootstrap';
+
+
+.ms_header {
+    height: 80px;
+}
+
+.ms_main {
+    height: calc(100vh - 80px);
+
+    .ms_menu {
+        background-color: #3C4B64;
+        color: white;
+    }
+}
