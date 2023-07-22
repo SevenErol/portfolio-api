@@ -23,9 +23,9 @@
     <div id="app">
 
 
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm ms_header">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm ms_header">
             <div class="container">
-                <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
+                {{-- <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                     <div class="logo_laravel">
                         <svg viewBox="0 0 651 192" fill="none" xmlns="http://www.w3.org/2000/svg"
                             style="width: 150px">
@@ -35,8 +35,8 @@
                             </g>
                         </svg>
                     </div>
-                    {{-- config('app.name', 'Laravel') --}}
-                </a>
+                    {{-- config('app.name', 'Laravel')
+                </a> --}}
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"

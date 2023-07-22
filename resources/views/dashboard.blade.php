@@ -24,20 +24,20 @@
     </div> --}}
     <div class="container-fluid h-100">
         <div class="row h-100">
-            <div class="col-2 h-100 p-3 ms_menu">
-                <h2 class="fs-4 text-center">
+            <div class="col-2 h-100 p-3 shadow ms_menu">
+                <h2 class="fs-4 px-3">
                     {{ __('Dashboard Menù') }}
                 </h2>
 
-                <ul>
-                    <li class="nav-item">
+                <ul class="m-0 p-0">
+                    <li class="nav-item list-unstyled px-3 fs-5">
                         <a class="nav-link" href="{{ url('/') }}">{{ __('Home') }}</a>
                     </li>
                 </ul>
-                ciao
+
             </div>
 
-            <div class="col-10">
+            <div class="col-10 ms_col">
                 cioa
             </div>
         </div>

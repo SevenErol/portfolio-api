@@ -3,13 +3,24 @@
 
 .ms_header {
     height: 80px;
+    background-color: #2E40A1;
 }
 
 .ms_main {
     height: calc(100vh - 80px);
 
     .ms_menu {
-        background-color: #3C4B64;
+        background-color: #232438;
+        color: white;
+
+        li:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+            transition: 0.4s;
+        }
+    }
+
+    .ms_col {
+        background-color: #1A1C2B;
         color: white;
     }
 }
