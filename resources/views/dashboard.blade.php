@@ -38,7 +38,13 @@
             </div>
 
             <div class="col-10 ms_col">
-                cioa
+
+                <div class="container-fluid d-flex align-items-center h-100 justify-content-center">
+                    <div class="row align-items-center">
+                        <h1>Benvenuto nel tuo portale di amministrazione</h1>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

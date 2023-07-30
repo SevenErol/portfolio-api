@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ProjectController extends Controller
 {
@@ -13,7 +16,9 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        //
+        $auth_user = Auth::user()->id;
+        $projects = DB::table('projects')->where('user_id', '=', $auth_user)->orderByDesc('id')->paginate(4);
+        return view('admin.projects.index', compact('projects'));
     }
 
     /**
