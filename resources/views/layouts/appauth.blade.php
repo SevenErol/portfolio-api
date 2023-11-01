@@ -12,8 +12,9 @@
 
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- Usando Vite -->
     @vite(['resources/js/app.js'])
@@ -24,7 +25,7 @@
 
 
         <nav class="navbar navbar-expand-md navbar-light shadow-sm ms_header">
-            <div class="container">
+            <div class="container-fluid">
                 {{-- <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                     <div class="logo_laravel">
                         <svg viewBox="0 0 651 192" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -47,13 +48,16 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="{{ url('/') }}">{{ __('Home') }}</a>
-                        </li>
+                        </li> --}}
+                        <h3 class="fs-4 p-2 fw-bold">
+                            {{ __('Dashboard Menù') }}
+                        </h3>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav">
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
@@ -91,7 +95,27 @@
             </div>
         </nav>
 
-        @yield('content')
+        <main class="ms_main">
+            <div class="container-fluid h-100">
+                <div class="row h-100">
+                    <div class="col-2 h-100 p-3 shadow ms_menu">
+
+                        <ul class="m-0 p-0">
+                            <li class="nav-item list-unstyled p-2">
+                                <a class="nav-link" href="{{ url('/') }}">{{ __('Home') }}</a>
+                            </li>
+                            <li class="nav-item list-unstyled p-2">
+                                <a class="nav-link" href="{{ url('/admin/projects') }}">{{ __('Projects') }}</a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                    @yield('content')
+
+                </div>
+            </div>
+        </main>
 
     </div>
 </body>

@@ -1,17 +1,27 @@
 @import '~bootstrap/scss/bootstrap';
 
 
+* {
+    font-family: 'Noto Sans', sans-serif;
+}
+
 .ms_header {
     height: 80px;
-    background-color: #2E40A1;
+    color: #2E40A1;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #e2e8f0;
 }
 
 .ms_main {
     height: calc(100vh - 80px);
 
     .ms_menu {
-        background-color: #232438;
-        color: white;
+        /*background-color: #232438;*/
+        /*color: white;*/
+        --tw-text-opacity: 1;
+        color: rgb(100 116 139 / var(--tw-text-opacity));
+        font-size: 0.875rem;
+        line-height: 1.25rem;
 
         li:hover {
             background-color: rgba(255, 255, 255, 0.4);
