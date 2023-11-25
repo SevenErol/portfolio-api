@@ -1,8 +1,8 @@
 @extends('layouts.appauth')
 
 @section('content')
-    <div class="col-10 ms_col">
-        <div class="container p-3">
+    <div class="col-10 h-100">
+        <div class="container p-3 h-100 ms_inner_menu">
 
 
             <h1 class="text-center">Form per un nuovo Progetto</h1>

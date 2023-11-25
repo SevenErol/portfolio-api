@@ -42,6 +42,7 @@ class ProjectController extends Controller
             $cover_image = Storage::disk('public')->put('uploads', $val_data['cover_image']);
             $val_data['cover_image'] = $cover_image;
         }
+        $val_data['user_id'] = Auth::user()->id;
         $project = Project::create($val_data);
 
         //Many to many relationship
@@ -50,7 +51,7 @@ class ProjectController extends Controller
         // }
 
 
-        return to_route('admin.projects.index')->with('message', "Project added successfully");
+        return to_route('admin.projects.index')->with('message', "Progetto aggiunto correttamente");
     }
 
     /**
