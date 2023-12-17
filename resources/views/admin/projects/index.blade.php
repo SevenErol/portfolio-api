@@ -10,7 +10,7 @@
                     class="row justify-content-between p-3 m-0 border-bottom border-dark align-items-center ms_inner_header">
                     <div class="col-2"><strong>Lista progetti</strong></div>
                     <div class="col-2 text-end"><a href="{{ route('admin.projects.create') }}" type="button"
-                            class="btn btn-primary">Nuovo progetto</a></div>
+                            class="btn btn-success">Nuovo progetto</a></div>
                 </div>
 
                 @include ('partials.message')
@@ -41,20 +41,20 @@
                                 <td>{{ $project->title }}</td>
                                 <td>{{ $project->description }}</td>
                                 <td>{{ $project->date }}</td>
-                                <td>
+                                <td style="width:48px">
                                     <div class="d-flex flex-column">
                                         <div>
                                             <a href="{{ route('admin.projects.show', $project->id) }}" type="button"
-                                                class="btn btn-secondary col-12 mb-3">View</a>
+                                                class="btn border border-primary col-12 mb-3 fw-bold text-primary">View</a>
                                         </div>
                                         <div>
                                             <a href="{{ route('admin.projects.edit', $project->id) }}" type="button"
-                                                class="btn btn-primary col-12 mb-3">Edit</a>
+                                                class="btn border border-warning col-12 mb-3 fw-bold text-warning">Edit</a>
                                         </div>
                                         <div>
 
                                             <button data-bs-toggle="modal" data-bs-target="#delete-{{ $project->id }}"
-                                                class="btn btn-danger col-12 mb-3">Delete</button>
+                                                class="btn border border-danger col-12 mb-3 fw-bold text-danger">Delete</button>
 
                                             @include('partials.projects_modal')
 

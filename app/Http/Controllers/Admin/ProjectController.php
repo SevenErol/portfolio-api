@@ -59,7 +59,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        //
+        return view('admin.projects.show', compact('project'));
     }
 
     /**
@@ -67,7 +67,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('admin.projects.edit', compact('project'));
     }
 
     /**
@@ -75,7 +75,26 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        $val_data = $request->validated();
+        if ($request->hasFile('cover_image')) {
+            if ($project->cover_image) {
+                Storage::delete($project->cover_image);
+            }
+            $cover_image = Storage::disk('public')->put('uploads', $val_data['cover_image']);
+            $val_data['cover_image'] = $cover_image;
+        }
+
+
+        $project->update($val_data);
+
+        //Many to many relationship
+        //if ($request->has('technologies')) {
+        //$project->technologies()->sync($val_data['technologies']);
+        //} else {
+        //$project->technologies()->sync([]);
+        //}
+
+        return to_route('admin.projects.index')->with('message', "Progetto aggiornato correttamente");
     }
 
     /**
@@ -83,6 +102,14 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        if ($project->cover_image) {
+            Storage::delete($project->cover_image);
+        }
+
+
+        $project->delete();
+
+
+        return to_route('admin.projects.index')->with('message', "Progetto cancellato correttamente");
     }
 }
