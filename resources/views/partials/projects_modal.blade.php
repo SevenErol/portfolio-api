@@ -4,22 +4,24 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="delete-{{ $project->id }}">Stai per eliminare
-                    <strong>definitivamente</strong> un dato
+                    <strong>DEFINITIVAMENTE</strong> un dato
                 </h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Stai per eliminare per sempre un elemento, sei sicuro di voler continuare? Se lo fai, non sarà più
+                Stai per eliminare per sempre un elemento. <br>Sei sicuro di voler continuare? <br> Se lo fai, non sarà
+                più
                 possibile recuperare i dati.
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn border border-secondary fw-bold ms_btn_hover_secondary"
+                    data-bs-dismiss="modal">Close</button>
                 <form action="{{ route('admin.projects.destroy', $project->id) }}" method="post">
                     @csrf
 
                     @method ('delete')
 
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn border border-danger fw-bold ms_btn_hover_danger">Delete</button>
                 </form>
             </div>
         </div>

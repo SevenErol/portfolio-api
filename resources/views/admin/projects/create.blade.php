@@ -41,7 +41,7 @@
                         <small id="dateHlper" class="text-danger">{{ $message }}</small>
                     @enderror
                 </div>
-                <button type="submit" class="btn btn-primary">Inserisci</button>
+                <button type="submit" class="btn btn-success">Inserisci</button>
             </form>
         </div>
     </div>

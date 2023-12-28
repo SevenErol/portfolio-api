@@ -5,6 +5,51 @@
     font-family: 'Noto Sans', sans-serif;
 }
 
+.ms_menu_active {
+    color: $white;
+    background-color: $cyan;
+}
+
+.ms_btn_hover_danger {
+    color: $red;
+
+    &:hover {
+        color: $white;
+        background-color: $red;
+        transition: 0.4s;
+    }
+}
+
+.ms_btn_hover_warning {
+    color: $yellow;
+
+    &:hover {
+        color: $white;
+        background-color: $yellow;
+        transition: 0.4s;
+    }
+}
+
+.ms_btn_hover_info {
+    color: $blue;
+
+    &:hover {
+        color: $white;
+        background-color: $blue;
+        transition: 0.4s;
+    }
+}
+
+.ms_btn_hover_secondary {
+    color: $gray-600;
+
+    &:hover {
+        color: $white;
+        background-color: $gray-600;
+        transition: 0.4s;
+    }
+}
+
 .ms_header {
     height: 80px;
     color: #2E40A1;
@@ -30,7 +75,8 @@
         line-height: 1.25rem;
 
         li:hover {
-            background-color: #2E40A1;
+            color: $white;
+            background-color: $cyan;
             transition: 0.4s;
         }
     }

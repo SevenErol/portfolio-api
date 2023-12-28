@@ -45,16 +45,16 @@
                                     <div class="d-flex flex-column">
                                         <div>
                                             <a href="{{ route('admin.projects.show', $project->id) }}" type="button"
-                                                class="btn border border-primary col-12 mb-3 fw-bold text-primary">View</a>
+                                                class="btn border border-primary col-12 mb-3 fw-bold ms_btn_hover_info">View</a>
                                         </div>
                                         <div>
                                             <a href="{{ route('admin.projects.edit', $project->id) }}" type="button"
-                                                class="btn border border-warning col-12 mb-3 fw-bold text-warning">Edit</a>
+                                                class="btn border border-warning col-12 mb-3 fw-bold ms_btn_hover_warning">Edit</a>
                                         </div>
                                         <div>
 
                                             <button data-bs-toggle="modal" data-bs-target="#delete-{{ $project->id }}"
-                                                class="btn border border-danger col-12 mb-3 fw-bold text-danger">Delete</button>
+                                                class="btn border border-danger col-12 mb-3 fw-bold ms_btn_hover_danger">Delete</button>
 
                                             @include('partials.projects_modal')
 

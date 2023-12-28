@@ -101,10 +101,12 @@
                     <div class="col-2 h-100 p-3 shadow ms_menu">
 
                         <ul class="m-0 p-0">
-                            <li class="nav-item list-unstyled p-2">
-                                <a class="nav-link" href="{{ url('/') }}">{{ __('Home') }}</a>
+                            <li
+                                class="nav-item list-unstyled p-2 mb-2 {{ Route::currentRouteName() === 'admin.dashboard' ? 'ms_menu_active' : '' }}">
+                                <a class="nav-link fw-bold" href="{{ url('/admin') }}">{{ __('Home') }}</a>
                             </li>
-                            <li class="nav-item list-unstyled p-2">
+                            <li
+                                class="nav-item fw-bold list-unstyled p-2 mb-2 {{ Route::currentRouteName() === 'admin.projects.index' ? 'ms_menu_active' : '' }}">
                                 <a class="nav-link" href="{{ url('/admin/projects') }}">{{ __('Projects') }}</a>
                             </li>
                         </ul>

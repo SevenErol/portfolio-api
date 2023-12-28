@@ -41,13 +41,13 @@
                             <div class="d-flex flex-column">
                                 <div>
                                     <a href="{{ route('admin.projects.edit', $project->id) }}" type="button"
-                                        class="btn btn-primary col-12 mb-3">Edit</a>
+                                        class="btn border border-warning col-12 mb-3 fw-bold ms_btn_hover_warning">Edit</a>
                                 </div>
                                 <div>
 
 
                                     <button data-bs-toggle="modal" data-bs-target="#delete-{{ $project->id }}"
-                                        class="btn btn-danger col-12 mb-3">Delete</button>
+                                        class="btn border border-danger col-12 mb-3 fw-bold ms_btn_hover_danger">Delete</button>
 
                                     @include('partials.projects_modal')
 
