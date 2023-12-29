@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Projects administration') }}</title>
 
 
     <!-- Fonts -->
@@ -91,7 +91,10 @@
             </div>
         </nav>
 
-        @yield('content')
+        <main class="ms_main">
+
+            @yield('content')
+        </main>
 
     </div>
 </body>

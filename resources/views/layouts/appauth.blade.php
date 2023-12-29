@@ -8,7 +8,12 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Projects administration') }}</title>
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
     <!-- Fonts -->
@@ -103,11 +108,20 @@
                         <ul class="m-0 p-0">
                             <li
                                 class="nav-item list-unstyled p-2 mb-2 {{ Route::currentRouteName() === 'admin.dashboard' ? 'ms_menu_active' : '' }}">
-                                <a class="nav-link fw-bold" href="{{ url('/admin') }}">{{ __('Home') }}</a>
+                                <a class="nav-link fw-bold" href="{{ url('/admin') }}"><i
+                                        class="fa-solid fa-house"></i> {{ __('Home') }} </a>
                             </li>
                             <li
                                 class="nav-item fw-bold list-unstyled p-2 mb-2 {{ Route::currentRouteName() === 'admin.projects.index' ? 'ms_menu_active' : '' }}">
-                                <a class="nav-link" href="{{ url('/admin/projects') }}">{{ __('Projects') }}</a>
+                                <a class="nav-link" href="{{ url('/admin/projects') }}">
+                                    <i class="fa-solid fa-laptop"></i> {{ __('Projects') }}
+                                </a>
+                            </li>
+                            <li
+                                class="nav-item list-unstyled p-2 mb-2 {{ Route::currentRouteName() === 'admin.dashboard' ? 'ms_menu_active' : '' }}">
+                                <a class="nav-link fw-bold" href="{{ url('/admin') }}">
+                                    <i class="fa-solid fa-gear"></i> {{ __('Languages') }}
+                                </a>
                             </li>
                         </ul>
 
