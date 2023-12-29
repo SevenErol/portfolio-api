@@ -46,9 +46,9 @@ class ProjectController extends Controller
         $project = Project::create($val_data);
 
         //Many to many relationship
-        // if ($request->has('technologies')) {
-        //     $project->technologies()->attach($val_data['technologies']);
-        // }
+        if ($request->has('languages')) {
+            $project->languages()->attach($val_data['languages']);
+        }
 
 
         return to_route('admin.projects.index')->with('message', "Progetto aggiunto correttamente");
@@ -88,11 +88,11 @@ class ProjectController extends Controller
         $project->update($val_data);
 
         //Many to many relationship
-        //if ($request->has('technologies')) {
-        //$project->technologies()->sync($val_data['technologies']);
-        //} else {
-        //$project->technologies()->sync([]);
-        //}
+        if ($request->has('languages')) {
+            $project->languages()->sync($val_data['languages']);
+        } else {
+            $project->languages()->sync([]);
+        }
 
         return to_route('admin.projects.index')->with('message', "Progetto aggiornato correttamente");
     }

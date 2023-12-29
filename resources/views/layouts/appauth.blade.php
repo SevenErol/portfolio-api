@@ -118,8 +118,8 @@
                                 </a>
                             </li>
                             <li
-                                class="nav-item list-unstyled p-2 mb-2 {{ Route::currentRouteName() === 'admin.dashboard' ? 'ms_menu_active' : '' }}">
-                                <a class="nav-link fw-bold" href="{{ url('/admin') }}">
+                                class="nav-item list-unstyled p-2 mb-2 {{ Route::currentRouteName() === 'admin.languages.index' ? 'ms_menu_active' : '' }}">
+                                <a class="nav-link fw-bold" href="{{ url('/admin/languages') }}">
                                     <i class="fa-solid fa-gear"></i> {{ __('Languages') }}
                                 </a>
                             </li>
