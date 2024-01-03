@@ -7,6 +7,7 @@ use App\Models\Language;
 use App\Http\Requests\StoreLanguageRequest;
 use App\Http\Requests\UpdateLanguageRequest;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class LanguageController extends Controller
 {
@@ -25,7 +26,7 @@ class LanguageController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.languages.create');
     }
 
     /**
@@ -33,7 +34,21 @@ class LanguageController extends Controller
      */
     public function store(StoreLanguageRequest $request)
     {
-        //
+        $val_data = $request->validated();
+
+        if ($request->hasFile('lang_image')) {
+            $lang_image = Storage::disk('public')->put('uploads', $val_data['lang_image']);
+            $val_data['lang_image'] = $lang_image;
+        }
+        $language = Language::create($val_data);
+
+        //Many to many relationship
+        // if ($request->has('technologies')) {
+        //     $project->technologies()->attach($val_data['technologies']);
+        // }
+
+
+        return to_route('admin.languages.index')->with('message', "Linguaggio aggiunto correttamente");
     }
 
     /**
@@ -41,7 +56,7 @@ class LanguageController extends Controller
      */
     public function show(Language $language)
     {
-        //
+        return view('admin.languages.show', compact('language'));
     }
 
     /**
@@ -49,7 +64,7 @@ class LanguageController extends Controller
      */
     public function edit(Language $language)
     {
-        //
+        return view('admin.languages.edit');
     }
 
     /**
@@ -57,7 +72,26 @@ class LanguageController extends Controller
      */
     public function update(UpdateLanguageRequest $request, Language $language)
     {
-        //
+        $val_data = $request->validated();
+        if ($request->hasFile('cover_image')) {
+            if ($language->cover_image) {
+                Storage::delete($language->cover_image);
+            }
+            $cover_image = Storage::disk('public')->put('uploads', $val_data['cover_image']);
+            $val_data['cover_image'] = $cover_image;
+        }
+
+
+        $language->update($val_data);
+
+        //Many to many relationship
+        //if ($request->has('technologies')) {
+        //$project->technologies()->sync($val_data['technologies']);
+        //} else {
+        //$project->technologies()->sync([]);
+        //}
+
+        return to_route('admin.languages.index')->with('message', "Linguaggio aggiornato correttamente");
     }
 
     /**
@@ -65,6 +99,14 @@ class LanguageController extends Controller
      */
     public function destroy(Language $language)
     {
-        //
+        if ($language->cover_image) {
+            Storage::delete($language->cover_image);
+        }
+
+
+        $language->delete();
+
+
+        return to_route('admin.languages.index')->with('message', "Linguaggio cancellato correttamente");
     }
 }

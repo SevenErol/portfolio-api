@@ -10,7 +10,7 @@ class Language extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['lang_name', 'scope', 'description', 'knowledge_level'];
+    protected $fillable = ['lang_name', 'scope', 'description', 'knowledge_level', 'lang_image'];
 
     /**
      * Get the user that owns the restaurant
