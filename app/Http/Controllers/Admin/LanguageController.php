@@ -64,7 +64,7 @@ class LanguageController extends Controller
      */
     public function edit(Language $language)
     {
-        return view('admin.languages.edit');
+        return view('admin.languages.edit', compact('language'));
     }
 
     /**
@@ -73,12 +73,12 @@ class LanguageController extends Controller
     public function update(UpdateLanguageRequest $request, Language $language)
     {
         $val_data = $request->validated();
-        if ($request->hasFile('cover_image')) {
-            if ($language->cover_image) {
-                Storage::delete($language->cover_image);
+        if ($request->hasFile('lang_image')) {
+            if ($language->lang_image) {
+                Storage::delete($language->lang_image);
             }
-            $cover_image = Storage::disk('public')->put('uploads', $val_data['cover_image']);
-            $val_data['cover_image'] = $cover_image;
+            $lang_image = Storage::disk('public')->put('uploads', $val_data['lang_image']);
+            $val_data['lang_image'] = $lang_image;
         }
 
 

@@ -15,13 +15,13 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn border border-secondary fw-bold ms_btn_hover_secondary"
-                    data-bs-dismiss="modal">Close</button>
+                    data-bs-dismiss="modal">Chiudi</button>
                 <form action="{{ route('admin.projects.destroy', $project->id) }}" method="post">
                     @csrf
 
                     @method ('delete')
 
-                    <button type="submit" class="btn border border-danger fw-bold ms_btn_hover_danger">Delete</button>
+                    <button type="submit" class="btn border border-danger fw-bold ms_btn_hover_danger">Elimina</button>
                 </form>
             </div>
         </div>

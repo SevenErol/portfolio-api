@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+use App\Models\Language;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -29,7 +30,9 @@ class ProjectController extends Controller
     {
         $auth_user = Auth::user()->id;
         $projects = DB::table('projects')->where('user_id', '=', $auth_user)->orderByDesc('id')->paginate(4);
-        return view('admin.projects.create', compact('projects'));
+
+        $languages = Language::all();
+        return view('admin.projects.create', compact('projects', 'languages'));
     }
 
     /**

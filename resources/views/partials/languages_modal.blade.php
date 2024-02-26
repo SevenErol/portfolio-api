@@ -4,7 +4,8 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="delete-{{ $language->id }}">Stai per eliminare
-                    <strong>definitivamente</strong> un dato</h1>
+                    <strong>definitivamente</strong> un dato
+                </h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -12,13 +13,14 @@
                 possibile recuperare i dati.
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn border border-secondary fw-bold ms_btn_hover_secondary"
+                    data-bs-dismiss="modal">Chiudi</button>
                 <form action="{{ route('admin.languages.destroy', $language->id) }}" method="post">
                     @csrf
 
                     @method ('delete')
 
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn border border-danger fw-bold ms_btn_hover_danger">Elimina</button>
                 </form>
             </div>
         </div>

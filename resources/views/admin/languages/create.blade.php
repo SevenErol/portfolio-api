@@ -46,10 +46,10 @@
 
                     <select class="form-select form-control @error('knowledge_level') is-invalid @enderror"
                         name="knowledge_level" id="knowledge_level">
-                        <option>Principiante</option>
-                        <option>Intermedio</option>
-                        <option>Avanzato</option>
-                        <option>Esperto</option>
+                        <option value="Principiante">Principiante</option>
+                        <option value="Intermedio">Intermedio</option>
+                        <option value="Avanzato">Avanzato</option>
+                        <option value="Esperto">Esperto</option>
                     </select>
 
                     @error('knowledge_level')

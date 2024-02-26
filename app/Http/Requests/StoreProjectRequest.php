@@ -26,6 +26,7 @@ class StoreProjectRequest extends FormRequest
             'cover_image' => 'nullable|image|max:300',
             'description' => 'nullable',
             'date' => 'nullable',
+            'languages' => 'required'
         ];
     }
     /**
@@ -39,7 +40,8 @@ class StoreProjectRequest extends FormRequest
             'title.required' => 'Attenzione! Inserisci un nome per il tuo progetto.',
             'title.min' => 'Attenzione! Il titolo deve essere lungo almeno 5 caratteri.',
             'title.max' => 'Attenzione! Hai superato il numero massimo di caratteri (150)',
-            'cover_image.max' => 'L\'immagine è troppo pesante, utilizzane una al di sotto dei 300KB'
+            'cover_image.max' => 'L\'immagine è troppo pesante, utilizzane una al di sotto dei 300KB',
+            'languages.required' => 'Attenzione! Selezione una o più opzioni per i linguaggi di programmazione.'
         ];
     }
 }

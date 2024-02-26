@@ -41,6 +41,25 @@
                         <small id="dateHlper" class="text-danger">{{ $message }}</small>
                     @enderror
                 </div>
+
+                <div class="mb-3">
+                    <label for="languages" class="form-label">Linguaggi progetto</label>
+                    <select multiple class="form-select form-select-sm" name="languages[]" id="languages">
+                        <option value="" disabled>Select a technology</option>
+                        @forelse ($languages as $language)
+                            @if ($errors->any())
+                                <option value="{{ $language->id }}"
+                                    {{ in_array($language->id, old('languages', [])) ? 'selected' : '' }}>
+                                    {{ $language->lang_name }}</option>
+                            @else
+                                <option value="{{ $language->id }}">{{ $language->lang_name }}</option>
+                            @endif
+                        @empty
+                            <option value="" disabled>Sorry no languages in the system</option>
+                        @endforelse
+                    </select>
+                </div>
+
                 <button type="submit" class="btn btn-success">Inserisci</button>
             </form>
         </div>
