@@ -22,6 +22,7 @@
                             <th scope="col">Title</th>
                             <th scope="col">Description</th>
                             <th scope="col">Date</th>
+                            <th scope="col">Languages</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -41,6 +42,18 @@
                                 <td>{{ $project->title }}</td>
                                 <td>{{ $project->description }}</td>
                                 <td>{{ $project->date }}</td>
+                                @if (!$project->languages->isEmpty())
+                                    <td>
+                                        <ul>
+                                            @foreach ($project->languages as $language)
+                                                <li>{{ $language->lang_name }}</li>
+                                            @endforeach
+
+                                        </ul>
+                                    </td>
+                                @else
+                                    <td>Non ci sono linguaggi collegati a questo progetto</td>
+                                @endif
                                 <td style="width:48px">
                                     <div class="d-flex flex-column">
                                         <div>

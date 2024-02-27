@@ -19,7 +19,10 @@ class ProjectController extends Controller
     public function index()
     {
         $auth_user = Auth::user()->id;
-        $projects = DB::table('projects')->where('user_id', '=', $auth_user)->orderByDesc('id')->paginate(4);
+        //$projects = Project::with('languages')->get();
+        //$projects = DB::table('projects')->where('user_id', '=', $auth_user)->with('languages')->orderByDesc('id')->paginate(4);
+        $projects = Project::with('languages')->where('user_id', '=', $auth_user)->paginate(4);
+        //$languages = Project::find('language_id')->languages;
         return view('admin.projects.index', compact('projects'));
     }
 
@@ -70,7 +73,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('admin.projects.edit', compact('project'));
+        $languages = Language::all();
+        return view('admin.projects.edit', compact('project', 'languages'));
     }
 
     /**

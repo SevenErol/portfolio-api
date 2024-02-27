@@ -49,7 +49,7 @@
                         @forelse ($languages as $language)
                             @if ($errors->any())
                                 <option value="{{ $language->id }}"
-                                    {{ in_array($language->id, old('languages', [])) ? 'selected' : '' }}>
+                                    {{ $language->lang_name == old('languages[]') ? 'selected' : '' }}>
                                     {{ $language->lang_name }}</option>
                             @else
                                 <option value="{{ $language->id }}">{{ $language->lang_name }}</option>
