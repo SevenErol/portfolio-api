@@ -22,7 +22,7 @@
                             <th scope="col">Nome Linguaggio</th>
                             <th scope="col">Scopo</th>
                             <th scope="col">Descrizione</th>
-                            <th scope="col">Knowledge level</th>
+                            <th scope="col">Livello di conoscenza</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -41,7 +41,7 @@
                                 </td>
                                 <td>{{ $language->lang_name }}</td>
                                 <td>{{ $language->scope }}</td>
-                                <td>{{ $language->description }}</td>
+                                <td>{{ Str::of($language->description)->limit(40) }}</td>
                                 <td>{{ $language->knowledge_level }}</td>
                                 <td style="width:48px">
                                     <div class="d-flex flex-column">

@@ -23,7 +23,7 @@
                         <label for="date" class="form-label">Data Progetto</label>
                         <input type="date" class="form-control @error('date') is-invalid @enderror" id="date"
                             name="date" value="{{ old('date') }}">
-                        @error('thumb')
+                        @error('date')
                             <small id="dateHlper" class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>

@@ -6,7 +6,7 @@
 
 
 
-            <h1 class="text-center mb-4">Singolo Linguaggio</h1>
+            <h1 class="text-center mb-4">Linguaggio {{ $language->lang_name }}</h1>
 
             <table class="table p-5">
                 <thead>
@@ -16,7 +16,7 @@
                         <th scope='col'>Nome Linguaggio</th>
                         <th scope='col'>Descrizione</th>
                         <th scope='col'>Scopo</th>
-                        <th scope='col'>Knowledge level</th>
+                        <th scope='col'>Livello di conoscenza</th>
                         <th scope='col'>Action</th>
                     </tr>
                 </thead>
@@ -35,7 +35,7 @@
                             @endif
                         </td>
                         <td>{{ $language['lang_name'] }}</td>
-                        <td>{{ $language['description'] }}</td>
+                        <td style="width:120px">{{ $language['description'] }}</td>
                         <td>{{ $language['scope'] }}</td>
                         <td>{{ $language['knowledge_level'] }}</td>
                         <td style="width:48px">

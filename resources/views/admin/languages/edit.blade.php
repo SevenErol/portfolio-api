@@ -8,13 +8,36 @@
             <form action="{{ route('admin.languages.update', $language->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method ('PUT')
-                <div class="mb-3">
-                    <label for="lang_name" class="form-label">Titolo linguaggio</label>
-                    <input type="text" class="form-control @error('lang_name') is-invalid @enderror" id="lang_name"
-                        name="lang_name" value="{{ $language->lang_name }}">
-                    @error('lang_name')
-                        <small id="lang_nameHlper" class="text-danger">{{ $message }}</small>
-                    @enderror
+                <div class="mb-3 d-flex justify-content-between">
+                    <div class="col-9">
+                        <label for="lang_name" class="form-label">Titolo linguaggio</label>
+                        <input type="text" class="form-control @error('lang_name') is-invalid @enderror" id="lang_name"
+                            name="lang_name" value="{{ $language->lang_name }}">
+                        @error('lang_name')
+                            <small id="lang_nameHlper" class="text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
+                    <div class="col-2">
+                        <label for="knowledge_level" class="form-label">Livello di conoscenza:</label>
+                        <select class="form-select @error('knowledge_level') 'is-invalid' @enderror" name="knowledge_level"
+                            id="knowledge_level">
+                            <option value="Principiante"
+                                {{ 'Principiante' == $language->knowledge_level ? 'selected' : '' }}>
+                                Principiante</option>
+                            <option value="Intermedio" {{ 'Intermedio' == $language->knowledge_level ? 'selected' : '' }}>
+                                Intermedio</option>
+                            <option value="Avanzato" {{ 'Avanzato' == $language->knowledge_level ? 'selected' : '' }}>
+                                Avanzato
+                            </option>
+                            <option value="Esperto" {{ 'Esperto' == $language->knowledge_level ? 'selected' : '' }}>Esperto
+                            </option>
+
+                        </select>
+
+                        @error('knowledge_level')
+                            <div class="alert alert-danger" role="alert">{{ $message }}</div>
+                        @enderror
+                    </div>
                 </div>
 
 
@@ -38,6 +61,15 @@
                     </div>
                 </div>
 
+                <div class="mb-3">
+                    <label for="scope" class="form-label">Utilizzo</label>
+                    <small id="scopeHlper" class="text-secondary">Possibili applicazioni del linguaggio</small>
+                    <input type="text" class="form-control @error('scope') is-invalid @enderror" id="scope"
+                        name="scope" value="{{ $language->scope }}">
+                    @error('scope')
+                        <small id="scopeHlper" class="text-danger">{{ $message }}</small>
+                    @enderror
+                </div>
 
                 <div class="mb-3">
                     <label for="description">Descrizione Linguaggio</label>
@@ -48,34 +80,6 @@
                     @enderror
                 </div>
 
-                <div class="mb-3">
-                    <label for="scope" class="form-label">Scopo Linguaggio</label>
-                    <input type="text" class="form-control @error('scope') is-invalid @enderror" id="scope"
-                        name="scope" value="{{ $language->scope }}">
-                    @error('scope')
-                        <small id="scopeHlper" class="text-danger">{{ $message }}</small>
-                    @enderror
-                </div>
-
-                <div class="mb-3">
-                    <label for="knowledge_level" class="form-label">Livello di conoscenza:</label>
-                    <select class="form-select @error('knowledge_level') 'is-invalid' @enderror" name="knowledge_level"
-                        id="knowledge_level">
-                        <option value="Principiante" {{ 'Principiante' == $language->knowledge_level ? 'selected' : '' }}>
-                            Principiante</option>
-                        <option value="Intermedio" {{ 'Intermedio' == $language->knowledge_level ? 'selected' : '' }}>
-                            Intermedio</option>
-                        <option value="Avanzato" {{ 'Avanzato' == $language->knowledge_level ? 'selected' : '' }}>Avanzato
-                        </option>
-                        <option value="Esperto" {{ 'Esperto' == $language->knowledge_level ? 'selected' : '' }}>Esperto
-                        </option>
-
-                    </select>
-
-                    @error('knowledge_level')
-                        <div class="alert alert-danger" role="alert">{{ $message }}</div>
-                    @enderror
-                </div>
 
                 <button type="submit" class="btn btn-success">Conferma</button>
             </form>
