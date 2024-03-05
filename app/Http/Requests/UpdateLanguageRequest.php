@@ -23,7 +23,7 @@ class UpdateLanguageRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'lang_name' => ['required', Rule::unique('languages')->ignore($this->language->id), 'min:5', 'max:50'],
+            'lang_name' => ['required', Rule::unique('languages')->ignore($this->language->id), 'max:50'],
             'lang_image' => 'nullable|image|max:300',
             'description' => 'nullable',
             'scope' => 'nullable',
@@ -41,8 +41,7 @@ class UpdateLanguageRequest extends FormRequest
     {
         return [
             'lang_name.required' => 'Attenzione! Inserisci un nome per il tuo progetto.',
-            'lang_name.min' => 'Attenzione! Il titolo deve essere lungo almeno 5 caratteri.',
-            'lang_name.max' => 'Attenzione! Hai superato il numero massimo di caratteri (150)',
+            'lang_name.max' => 'Attenzione! Hai superato il numero massimo di caratteri (50)',
             'lang_image.max' => 'L\'immagine è troppo pesante, utilizzane una al di sotto dei 300KB'
         ];
     }

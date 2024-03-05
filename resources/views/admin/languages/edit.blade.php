@@ -58,7 +58,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="knowledge_level" class="form-label">Types</label>
+                    <label for="knowledge_level" class="form-label">Livello di conoscenza:</label>
                     <select class="form-select @error('knowledge_level') 'is-invalid' @enderror" name="knowledge_level"
                         id="knowledge_level">
                         <option value="Principiante" {{ 'Principiante' == $language->knowledge_level ? 'selected' : '' }}>

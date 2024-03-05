@@ -40,10 +40,12 @@
                                     @endif
                                 </td>
                                 <td>{{ $project->title }}</td>
-                                <td>{{ $project->description }}</td>
+                                <td>
+                                    {{ Str::of($project->description)->limit(40) }}
+                                </td>
                                 <td>{{ $project->date }}</td>
                                 @if (!$project->languages->isEmpty())
-                                    <td>
+                                    <td style="width:72px">
                                         <ul>
                                             @foreach ($project->languages as $language)
                                                 <li>{{ $language->lang_name }}</li>

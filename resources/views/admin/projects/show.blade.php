@@ -35,7 +35,7 @@
                             @endif
                         </td>
                         <td>{{ $project['title'] }}</td>
-                        <td>{{ $project['description'] }}</td>
+                        <td style="width:120px">{{ $project['description'] }}</td>
                         <td>{{ $project['date'] }}</td>
                         <td style="width:48px">
                             <div class="d-flex flex-column">
